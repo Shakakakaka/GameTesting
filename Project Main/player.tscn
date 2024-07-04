@@ -1,0 +1,212 @@
+[gd_scene load_steps=16 format=3 uid="uid://eg254fyo32m8"]
+
+[ext_resource type="Texture2D" uid="uid://bphaeoa2cc7n" path="res://Action RPG Resources/Player/Player.png" id="1_m88ml"]
+[ext_resource type="Script" path="res://player.gd" id="1_mjhoy"]
+[ext_resource type="Resource" uid="uid://bbvei05btpuek" path="res://inventory/playerInventory.tres" id="2_sru3g"]
+[ext_resource type="Texture2D" uid="uid://uqhy4gt32ien" path="res://Action RPG Resources/Shadows/MediumShadow.png" id="3_0bimv"]
+
+[sub_resource type="Animation" id="Animation_eeylh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(18, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_88dse"]
+resource_name = "walk_down"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(18, 0), Vector2i(19, 0), Vector2i(20, 0), Vector2i(21, 0), Vector2i(22, 0), Vector2i(23, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jwkb2"]
+resource_name = "walk_left"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_ve1ce"]
+resource_name = "walk_right"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_f80eq"]
+resource_name = "walk_up"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1kt7f"]
+_data = {
+"RESET": SubResource("Animation_eeylh"),
+"walk_down": SubResource("Animation_88dse"),
+"walk_left": SubResource("Animation_jwkb2"),
+"walk_right": SubResource("Animation_ve1ce"),
+"walk_up": SubResource("Animation_f80eq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abe80"]
+size = Vector2(11, 5.9327)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1vcp"]
+size = Vector2(12, 6)
+
+[sub_resource type="Animation" id="Animation_aar7l"]
+resource_name = "hurtBlink"
+length = 0.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0.313726), Color(1, 1, 1, 0.462745)]
+}
+
+[sub_resource type="Animation" id="Animation_qxtco"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ey67t"]
+_data = {
+"RESET": SubResource("Animation_qxtco"),
+"hurtBlink": SubResource("Animation_aar7l")
+}
+
+[node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+position = Vector2(152, 82)
+collision_layer = 3
+script = ExtResource("1_mjhoy")
+maxHealth = 3
+inventory = ExtResource("2_sru3g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+clip_children = 2
+texture = ExtResource("1_m88ml")
+hframes = 60
+frame = 6
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-0.5, 12)
+scale = Vector2(0.8125, 1)
+texture = ExtResource("3_0bimv")
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+y_sort_enabled = true
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 23.0
+color = Color(1, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_1kt7f")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-0.5, 10.0696)
+scale = Vector2(1, 1.03482)
+shape = SubResource("RectangleShape2D_abe80")
+
+[node name="hurtBox" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_c1vcp")
+
+[node name="Effects" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ey67t")
+}
+
+[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="hurtBox" to="." method="hurtByEnemy"]
