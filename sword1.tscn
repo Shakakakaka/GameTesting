@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ya1y5qyk83do"]
+
+[ext_resource type="Script" path="res://player/sword1.gd" id="1_5ye7n"]
+[ext_resource type="Texture2D" uid="uid://bx7yfvy1en7mf" path="res://Ninja Adventure - Asset Pack/Items/Weapons/BigSword/Sprite.png" id="1_ltasu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pccfm"]
+size = Vector2(4, 22)
+
+[node name="sword" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_5ye7n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, -7)
+texture = ExtResource("1_ltasu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, -3)
+shape = SubResource("RectangleShape2D_pccfm")

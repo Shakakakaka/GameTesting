@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://58yyrnbn4tct"]
+
+[ext_resource type="Texture2D" uid="uid://beynpdq2evf21" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Bow2/Sprite.png" id="1_w8n8d"]
+
+[node name="bow" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w8n8d")
