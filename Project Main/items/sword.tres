@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://d2k0jcrrba4yp"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_3foqw"]
+[ext_resource type="Texture2D" uid="uid://bx7yfvy1en7mf" path="res://Ninja Adventure - Asset Pack/Items/Weapons/BigSword/Sprite.png" id="2_hlmnp"]
+
+[resource]
+script = ExtResource("1_3foqw")
+name = "sword"
+texture = ExtResource("2_hlmnp")
